@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.6.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>io.fabric8.examples</groupId>
+	<artifactId>kubernetes-client-inside-pod</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>kubernetes-client-inside-pod</name>
+	<description>Demo project for Fabric8 Kubernetes Client Inside Pod</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<kubernetes-client.version>4.9.0</kubernetes-client.version>
+		<jkube.version>1.0.0-alpha-1</jkube.version>
+		<jkube.mode>kubernetes</jkube.mode>
+		<jkube.enricher.jkube-service.type>NodePort</jkube.enricher.jkube-service.type>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>io.fabric8</groupId>
+			<artifactId>kubernetes-client</artifactId>
+			<version>${kubernetes-client.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+                        <plugin>
+                            <groupId>org.eclipse.jkube</groupId>
+                            <artifactId>kubernetes-maven-plugin</artifactId>
+                            <version>${jkube.version}</version>
+                        </plugin>
+                        <plugin>
+                            <groupId>org.eclipse.jkube</groupId>
+                            <artifactId>openshift-maven-plugin</artifactId>
+                            <version>${jkube.version}</version>
+                        </plugin>
+
+		</plugins>
+	</build>
+
+</project>
