@@ -16,7 +16,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<kubernetes-client.version>5.9.0</kubernetes-client.version>
+		<kubernetes-client.version>5.10.2</kubernetes-client.version>
 		<jkube.version>1.4.0</jkube.version>
 		<jkube.mode>kubernetes</jkube.mode>
 		<jkube.enricher.jkube-service.type>NodePort</jkube.enricher.jkube-service.type>
