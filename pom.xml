@@ -62,6 +62,16 @@
                             <groupId>org.eclipse.jkube</groupId>
                             <artifactId>kubernetes-maven-plugin</artifactId>
                             <version>${jkube.version}</version>
+                            <configuration>
+                                <resources>
+                                    <serviceAccounts>
+                                        <serviceAccount>
+                                            <name>kubernetes-client-inside-pod-sa</name> 
+                                            <deploymentRef>${project.artifactId}</deploymentRef>
+                                        </serviceAccount>
+                                    </serviceAccounts>
+                                </resources>
+                            </configuration>
                         </plugin>
                         <plugin>
                             <groupId>org.eclipse.jkube</groupId>
